@@ -47,6 +47,10 @@ func main() {
 		go func() {
 			jP := journalParser.InitParser(inputFilename, outputFilename)
 			if jerr := jP.Try(); jerr != nil {
+				_, err = os.Stat(outputFilename)
+				if err == nil {
+					os.Remove(outputFilename)
+				}
 				fmt.Println(inputFilename, " ", jerr)
 			}
 			wg.Done()
