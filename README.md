@@ -10,11 +10,11 @@
 
     JournalParser [FILE]...
     
-##Output File Format
+## Output File Format
 
     FileName.XXXXXXXX.result.txt
     
-##Requirements
+## Requirements
     
     2GB or more RAM
   
