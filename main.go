@@ -45,6 +45,7 @@ func main() {
 		wg.Add(1)
 
 		go func() {
+			defer wg.Done()
 			jP := journalParser.InitParser(inputFilename, outputFilename)
 			if jerr := jP.Try(); jerr != nil {
 				_, err = os.Stat(outputFilename)
@@ -53,7 +54,6 @@ func main() {
 				}
 				fmt.Println(inputFilename, " ", jerr)
 			}
-			wg.Done()
 		}()
 
 	}
